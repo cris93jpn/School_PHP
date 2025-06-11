@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>会員登録申込み画面</title>
+</head>
+<body>
+    <h1>会員登録申込み画面</h1>
+    <form action=form_2.php method="post">
+        <p>会員種別code: 0-正会員, 1-期間会員, 2- 一時会員,番号を選択<br>
+             <select name="employe">
+                    <option value="0">正会員</option>
+                    <option value="1">期間会員</option>
+                    <option value="2">一時会員</option>
+             </select>
+        <p>名前：<input type="text" name="namae"></p>
+        <p>郵便番号：<input type="text" name="yuubin"></p>
+        <p>住所：<input type="text" name="address"></p>
+        <p>性別：<input type="radio" name="sex" value="male">男性
+            <input type="radio" name="sex" value="female">女性
+        </p>
+        <p>支払方法：
+            <select name="payment">
+            <option value="現金">現金</option>
+            <option value="クレジットカード">クレジットカード</option>
+            </select>
+        </p>
+        <p><input type="submit" value="申込み"></p>
+        <p><input type=hidden name=age value=20></p>
+    </form>
+</body>
+</html>
