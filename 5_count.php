@@ -7,18 +7,16 @@
 </head>
 <body>
     <?php
+    $c = 1;
     if(file_exists("count.txt")){
-        $fp=@fopen("count.txt", "r") or die ("File Error");
-        $c = fgets($fp);
-        fclose($fp);
-        $c = (int)$c + 1;
-        
-    } else {
-        $c = 1;
-    }
+        $fh = fopen("count.txt", "r");
+        $c = fgets($fh);
+        fclose($fh);
+        $c++;
+    } 
 
-    $fp=@fopen("count.txt", "w") or die ("File Error");
-    fwrite($fp, $c);
+    $fp=@fopen("count.txt", "w");
+    fputs($fp, $c);
     fclose($fp);
 
     print "あなたは・・・・ $c 番目の訪問者です。";

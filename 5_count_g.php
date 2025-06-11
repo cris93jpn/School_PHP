@@ -8,22 +8,24 @@
 <body>
     
     <?php
-        $num = 234;
-        $val = sprintf("%05d", $num);
+    $c = 1;
+    if(file_exists("count.txt")){
+        $fh = fopen("count.txt", "r");
+        $c = fgets($fh);
+        fclose($fh);
+        $c++;
+    } 
 
-        $n1 = substr($val, 0, 1);
-        $n2 = substr($val, 1, 1);
-        $n3 = substr($val, 2, 1);
-        $n4 = substr($val, 3, 1);
-        $n5 = substr($val, 4, 1);
+    $fp=@fopen("count.txt", "w");
+    fputs($fp, $c);
+    fclose($fp);
+    $dgcount = sprintf("%05d", $c);
+    print "アクセスカウンター<br>";
 
-        $img = 'counter/';
-
-        echo '<img src="'.$img.$n1.'.png">';
-        echo '<img src="'.$img.$n2.'.png">';
-        echo '<img src="'.$img.$n3.'.png">';
-        echo '<img src="'.$img.$n4.'.png">';
-        echo '<img src="'.$img.$n5.'.png">';
+    for($i=0; $i < 5; $i++) {
+        $n = substr($dgcount. $i, 1);
+        print "<img src='counter/$n.png' alt='$n'>";
+    }
     ?>
 </body>
 </html>
